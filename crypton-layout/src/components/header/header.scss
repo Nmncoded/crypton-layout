@@ -1,0 +1,151 @@
+.header-nav {
+    position: relative;
+}
+
+;
+
+.nav-main_brand {
+    position: fixed;
+    top: 2.43056vw;
+    left: 2.77778vw;
+    width: 47px;
+    background: transparent;
+    cursor: pointer;
+    font: bold 20px/1.25 'Space Mono';
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-main_brand>span {
+    font-weight: bold;
+}
+
+.nav-main_brand>span:nth-child(2) {
+    display: inline-block;
+    // vertical-align: -webkit-baseline-middle;
+    width: 0.6115em;
+}
+
+@keyframes animateFace {
+    10% {
+        opacity: 0;
+        display: none;
+        // content : '_';
+
+    }
+
+    20% {
+        opacity: 1;
+        display: inline-block;
+        // content : '_';
+    }
+
+    30% {
+        opacity: 0;
+        display: none;
+        // content : '_';
+    }
+
+    40% {
+        opacity: 1;
+        display: inline-block;
+        // content : '_';
+    }
+
+    50% {
+        opacity: 0;
+        display: none;
+        // content : '_';
+    }
+
+    60% {
+        opacity: 1;
+        display: inline-block;
+        // content : '_';
+    }
+
+    70% {
+        opacity: 0;
+        display: none;
+        // content : '_';
+    }
+
+    80% {
+        opacity: 1;
+        display: inline-block;
+        // content : '_';
+    }
+
+    90% {
+        opacity: 0;
+        display: none;
+        // content : '_';
+    }
+
+    100% {
+        opacity: 1;
+        display: inline-block;
+        // content : '_';
+    }
+}
+
+.animate_Face {
+    animation-name: animateFace;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 2;
+      animation-direction: alternate-reverse;
+}
+
+.footer_menu {
+    position: fixed;
+    z-index: 1;
+    bottom: 2.43056vw;
+    left: 2.77778vw;
+
+    .footer_menu_item {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1.88;
+        text-align: left;
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            border-bottom: 2px solid white;
+        }
+    }
+}
+
+.share {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 2.43056vw 2.77778vw;
+    font: 16px 'Space Mono';
+    color: #fff;
+    text-align: right;
+}
+
+.share_title {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.share_list {
+    display: none;
+}
+
+.share_item {
+    padding-top: 10px;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        &:hover {
+            border-bottom: 2px solid white;
+        }
+    }
+}
