@@ -1,28 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
 import './header.scss';
-import { useSelector, useDispatch, connect } from 'react-redux';
-import { decrement, increment } from '../../store/slices/headerSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { setAnimateFace, setShareOptionVisibility } from '../../store/slices/headerSlice';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useRef } from 'react';
 
 export const Header = () => {
-    // let connector = false;
-    const { headerReducer: { value } } = useSelector(state => state);
+    const { headerReducer: { animateFace, isShareOptionVisible } } = useSelector(state => state);
     const dispatch = useDispatch();
-    const linkRef = useRef();
-    const [animateFace, setAnimateFace] = useState(false);
-    const [isShareOptionVisible, setShareOptionVisibility] = useState(false);
 
     useEffect(() => {
         handleAnimateFace();
     }, []);
 
     const handleAnimateFace = () => {
-        setAnimateFace(true);
+        dispatch(setAnimateFace(true));
         setTimeout(() => {
-            setAnimateFace(false);
+            dispatch(setAnimateFace(false));
         }, 2000)
     }
 
@@ -32,8 +26,8 @@ export const Header = () => {
                 <span>{animateFace ? "0" : "="}</span>
                 <span
                     className={animateFace ? `animate_Face` : ''}
-                    style={{ verticalAlign: animateFace ? "-webkit-baseline-middle" : "" }}
-                >_</span>
+                    style={{ verticalAlign: animateFace ? "-webkit-baseline-middle" : ""}}
+                >{animateFace ? "" : "_"}</span>
                 <span>{animateFace ? "0" : "="}</span>
             </Link>
             <ul className='footer_menu' >
@@ -50,12 +44,12 @@ export const Header = () => {
             <div  className='share' >
                 <div  
                 className='share_title'  
-                onMouseOver={() => setShareOptionVisibility(true)} 
-                onMouseOut={() => setShareOptionVisibility(false)}  
+                onMouseOver={() => dispatch(setShareOptionVisibility(true))} 
+                onMouseOut={() => dispatch(setShareOptionVisibility(false))}  
                 >Share</div>
                 <ul 
-                onMouseOver={() => setShareOptionVisibility(true)} 
-                onMouseOut={() => setShareOptionVisibility(false)}
+                onMouseOver={() => dispatch(setShareOptionVisibility(true))} 
+                onMouseOut={() => dispatch(setShareOptionVisibility(false))}
                 className={isShareOptionVisible ? "" : 'share_list'} >
                     <li className='share_item' >
                         <a href="https://www.facebook.com">facebook</a>
